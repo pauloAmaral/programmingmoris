@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Programming Moris{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{ asset('/css/style.css') }}" rel="stylesheet" />
+            <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
+            <link href="{{ asset('/css/override.css') }}" rel="stylesheet" />
+        {% endblock %}
+        {% block javascriptsinclude %}
+            <script src="{{ asset('/js/jquery-2.0.3.min.js') }}"></script>
+            <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+        {% endblock %}        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="container">    
+            {% block head %}
+                <div id="header">
+                    <h1 id="logo"><a href="#" class="notext">Programming Moris</a></h1>
+                    <div class="socials right">
+                      <ul>
+                        <li><a href="#" class="rss">RSS</a></li>
+                        <li><a href="#" class="fb">Facebook</a></li>
+                        <li class="last"><a href="#" class="twit">Twitter</a></li>
+                      </ul>
+                    </div>
+                </div>
+            {% endblock %}
+            {% block menu %}
+            <nav class="navbar navbar-default" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-menu">
+			      <span class="sr-only">Toggle navigation</span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+    			</button>
+			<a class="navbar-brand" href="#">Home</a>
+		</div>
+		<div class="collapse navbar-collapse" id="collapse-menu">
+    			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Programming <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+					  <li><a href="#">Web</a></li>
+					  <li><a href="#">Java</a></li>
+					  <li><a href="#">Python</a></li>
+					  <li class="divider"></li>
+					  <li><a href="#">My Projects</a></li>
+					</ul>
+			      	</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other stuff <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+					  <li><a href="#">Short stories</a></li>
+					  <li><a href="#">Movies</a></li>
+					  <li><a href="#">Music</a></li>
+					</ul>
+			      	</li>
+				<li><a href="#">My Online CV</a></li>
+				<li class="active"><a href="#">Contacts</a></li>
+			</ul>
+		</div>
+            </nav>
+            {% endblock %}
+            {% block content %}{% endblock %}    
+            {% block javascripts %}{% endblock %}
+        </div>        
+    </body>
+    <footer>
+        <div class="container">
+            {% block footer %}
+                <div class="container">
+                    <div class="col-md-12" style="text-align:right; margin-top:20px;">
+                            <hr>
+                            <div class="col-md-1">
+                                    <a href="http://symfony.com/" ><img src="{{ asset('css/images/symfony-logo.png') }}" class="img-responsive" alt="Responsive image"></a>
+                            </div>
+                            <div class="col-md-1">
+                                    <a href="http://getbootstrap.com/" ><img src="{{ asset('css/images/bootstrap-logo.png') }}" class="img-responsive" alt="Responsive image"></a>
+                            </div>
+                            <p>© 2014 programmingmoris.com</p>
+                    </div>
+                </div>
+            {% endblock %}
+        </div>        
+    </footer>
+</html>

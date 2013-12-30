@@ -1,0 +1,3 @@
+programming_moris_home_homepage:
+    pattern:  /
+    defaults: { _controller: ProgrammingMorisHomeBundle:Default:index }

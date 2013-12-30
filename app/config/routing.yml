@@ -1,0 +1,4 @@
+programming_moris_home:
+    resource: "@ProgrammingMorisHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
