@@ -58,3 +58,6 @@
 .socials ul li a.twit {
 	background:url(images/soc-twit.gif) no-repeat 0 0;
 }
+.socials ul li a.github {
+	background:url(images/github-logo.png) no-repeat 0 0;
+}
