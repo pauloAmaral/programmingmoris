@@ -1,9 +1,10 @@
 <?php
 
 namespace ProgrammingMoris\HomeBundle\Entity;
+use Doctrine\ORM\EntityManager;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Util;
 /**
  * @ORM\Entity
  * @ORM\Table(name="article")
@@ -42,7 +43,7 @@ class Article
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string",unique=true)
      */
     protected $name;
 
@@ -55,17 +56,32 @@ class Article
      * @ORM\Column(type="datetime")
      */
     protected $created_at;
-
+    
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $description;
+    
+     /**
+     * @ORM\Column(type="string")
+     */
+    protected $description_image;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+ 
+    public function __construct() {
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+     /**
      * Get id
      *
      * @return integer 
      */
-    
-    public function __construct() {
-        $this->tags = new ArrayCollection();
-        $this->comments = new ArrayCollection();
-    }
     public function getId()
     {
         return $this->id;
@@ -80,8 +96,22 @@ class Article
     public function setName($name)
     {
         $this->name = $name;
-
+        
+        $this->setSlug($this->slugiffy($name));
         return $this;
+    }
+    
+    /**
+     * Slugiffy a given name
+     *
+     * @param string $name
+     * @return string the $name parameter slugiffied
+     */
+    private function slugiffy($name){
+        $slug = strtolower($name);
+        $slug = str_replace(' ', '-', $slug);
+        
+        return $slug;
     }
 
     /**
@@ -273,5 +303,89 @@ class Article
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Article
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set description_image
+     *
+     * @param string $descriptionImage
+     * @return Article
+     */
+    public function setDescriptionImage($descriptionImage)
+    {
+        $this->description_image = $descriptionImage;
+
+        return $this;
+    }
+
+    /**
+     * Get description_image
+     *
+     * @return string 
+     */
+    public function getDescriptionImage()
+    {
+        return $this->description_image;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+    
+    public function renderTags($route){
+        $i=0;
+        $number_of_tags = count($this->tags);
+        $tags_string = $number_of_tags>0?'• ':'';
+        foreach($this->tags as $tag){
+            $new_route = substr_replace($route, $tag->getName(),strlen($route)-1);
+            $tags_string.='<a href="'.$new_route.'">'.$tag->getName().'</a>';
+            if($i!=$number_of_tags-1){
+                $tags_string.=', ';
+            }
+            $i++;    
+        }
+        return $tags_string;
     }
 }

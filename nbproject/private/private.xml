@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/programmingmoris/app/AppKernel.php</file>
+            <file>file:/var/www/programmingmoris/app/config/security.yml</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Entity/Article.php</file>
+            <file>file:/var/www/programmingmoris/app/config/config.yml</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/ArticleBundle/Controller/DefaultController.php</file>
+            <file>file:/var/www/programmingmoris/web/css/style.css</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Entity/Category.php</file>
+            <file>file:/var/www/programmingmoris/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Entity/UserManager.php</file>
+            <file>file:/var/www/programmingmoris/composer.json</file>
+            <file>file:/var/www/programmingmoris/app/console</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/ArticleBundle/Resources/views/Default/show.html.twig</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Managers/ArticleManager.php</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Entity/Author.php</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Resources/config/services.yml</file>
+            <file>file:/var/www/programmingmoris/app/Resources/views/base.html.twig</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Entity/User.php</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Entity/Tag.php</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Controller/DefaultController.php</file>
+            <file>file:/var/www/programmingmoris/web/css/override.css</file>
+            <file>file:/var/www/programmingmoris/app/config/routing.yml</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Entity/FeaturedContent.php</file>
+            <file>file:/var/www/programmingmoris/src/ProgrammingMoris/HomeBundle/Resources/config/routing.yml</file>
+        </group>
+    </open-files>
 </project-private>

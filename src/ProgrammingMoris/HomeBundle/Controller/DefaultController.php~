@@ -1,0 +1,37 @@
+<?php
+
+namespace ProgrammingMoris\HomeBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\UserBundle\Entity\UserManager as Container;
+use FOS\UserBundle\Model\UserManagerInterface;
+
+use \ProgrammingMoris\HomeBundle\Entity\Article;
+
+class DefaultController extends Controller
+{
+    const MAX_LATEST_ARTICLES = 3;
+    
+    public function indexAction()
+    {
+        $name = 'a';
+//        $userManager = $this->get('fos_user.user_manager');
+//        $user = $userManager->createUser();
+//        $user->setUsername('John2');
+//$user->setEmail('john.doae@example.com');
+//$user->setPassword('123456');
+//
+//$userManager->updateUser($user);
+//
+//        $this->getDoctrine()->getEntityManager()->flush();
+//        $latest_articles = Article::getLatestArticles(self::MAX_LATEST_ARTICLES);
+//        var_dump($latest_articles);die();
+        $arp=`ls`;
+        var_dump($arp);die();
+        $article_manager = $this->get('article_manager');
+//        var_dump($article_manager->getLatestArticles());die();
+        $latest_articles = $article_manager->getLatestArticles();
+        
+        return $this->render('ProgrammingMorisHomeBundle:Default:index.html.twig', array('name' => 'exemplo', 'latest_articles'=>$latest_articles));
+    }
+}

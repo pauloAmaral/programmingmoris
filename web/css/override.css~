@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.tooltip-inner{
+	background-color: #FFFFFF;
+	max-width: 200px;
+	padding: 3px 8px;
+	color: #000000;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+}
+
+.feat-article>h1{
+	color: #000000;
+}
+
+.feat-story>h4>em{
+	color: #000000;
+}
+
+body {
+	line-height:20px;
+	font-family:Georgia, Arial, Helvetica, Sans-Serif;
+	background: url(/img/cream_dust.png) repeat 0 0;
+}

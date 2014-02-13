@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Comment
 {
     /**
-     * @ORM\ManyToMany(targetEntity="Article", mappedBy="articles")
+     * @ORM\ManyToMany(targetEntity="Article", mappedBy="comments")
      **/
     private $articles;
     

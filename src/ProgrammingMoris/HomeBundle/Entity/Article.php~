@@ -1,6 +1,7 @@
 <?php
 
 namespace ProgrammingMoris\HomeBundle\Entity;
+use Doctrine\ORM\EntityManager;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -42,7 +43,7 @@ class Article
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string",unique=true)
      */
     protected $name;
 
@@ -55,17 +56,32 @@ class Article
      * @ORM\Column(type="datetime")
      */
     protected $created_at;
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
     
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $description;
+    
+     /**
+     * @ORM\Column(type="string")
+     */
+    protected $description_image;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+ 
     public function __construct() {
         $this->tags = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
+    
+     /**
+     * Get id
+     *
+     * @return integer 
+     */
     public function getId()
     {
         return $this->id;
@@ -273,5 +289,51 @@ class Article
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Article
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set description_image
+     *
+     * @param string $descriptionImage
+     * @return Article
+     */
+    public function setDescriptionImage($descriptionImage)
+    {
+        $this->description_image = $descriptionImage;
+
+        return $this;
+    }
+
+    /**
+     * Get description_image
+     *
+     * @return string 
+     */
+    public function getDescriptionImage()
+    {
+        return $this->description_image;
     }
 }

@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Tag
 {
      /**
-     * @ORM\ManyToMany(targetEntity="Article", mappedBy="articles")
+     * @ORM\ManyToMany(targetEntity="Article", mappedBy="tags")
      **/
     private $articles;
     
@@ -34,7 +34,7 @@ class Tag
     private $name;
 
     public function __construct() {
-        $this->articles = new ArrayCollection();
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**

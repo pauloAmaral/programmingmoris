@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+        {% block articles %}
+            <div class="page-header slim">
+                {% set description = 'Articles from cathegory' %}
+                {% if type == 'tag' %}
+                    {% set description = 'Articles tagged with' %}
+                {% endif %}
+                <h3 class="slim">{{description}} {{identifier}}</h3>
+            </div>
+            {% set descriptionEmpty = 'There are no articles in the cathegory' %}
+                {% if type == 'tag' %}
+                    {% set descriptioEmptyn = 'There are no articles tagged with' %}
+                {% endif %}
+            {% if articles is null or articles|length == 0 %}   
+                <h4 style="padding-bottom: 20px;">{{ descriptionEmpty }} {{identifier}}</h4>
+            {% endif %}
+            {% for article in articles %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="media">
+                            <a class="pull-left col-md-2" href="#">
+                                <img src="{{ asset(article.descriptionImage) }}" alt="image for {{article.name}}" class="media-object img-responsive pull-right article-image small">
+                            </a>
+                            <div class="media-body">
+                                                <h3 class="media-heading"><a href="{{ path('programming_moris_article_show', {'slug': article.slug}) }}" class="article-title">{{article.name}}</a></h3>
+                                                <h4><a href="" class="author-label"><span class="label label-default">{{article.author.name}}</span></a></h4>
+                                                <h4><small style="font-family:courier,'new courier';" class="text-muted">{{article.createdAt|date("Y/m/d")}}
+                                                        {{article.renderTags(path('programming_moris_article_list_by_tag',{'tag': 'a'}))| raw }}
+                                                        •
+                                                        <a href="{{ path('programming_moris_article_show', {'slug': article.slug}) }}" class="text-muted">Read More</a></small></h4>
+                                                {{article.description}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+            {% if articles is not null and articles|length > 0 %}   
+                <h4 class="more-articles"><a href="#"><i class="glyphicon glyphicon-chevron-down"></i> More articles</a></h4>    
+            {% endif %}         
+    {% endblock %}
+{% endblock %}

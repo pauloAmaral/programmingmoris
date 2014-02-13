@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+        {% block article %}
+            <div class="row">
+              	
+                <div class="col col-sm-12 article">
+                    <div class="title">
+                        <h2>{{ article.name }}</h2>
+                        <h4><a href="" class="author-label"><span class="label label-default">{{ article.author.name }}</span></a></h4>
+                        <h4><small style="font-family:courier,'new courier';" class="text-muted">{{article.createdAt|date("Y/m/d")}} 
+                                {{article.renderTags(path('programming_moris_article_list_by_tag',{'tag': 'a'}))| raw }}
+                            </small></h4>
+                    </div>
+                    <div class="article-content">
+                        {{ article.content|raw }}
+                    </div>
+                 </div>
+            </div>   
+        {% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

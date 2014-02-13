@@ -1,92 +1,104 @@
 {% extends '::base.html.twig' %}
 
+{% block head %}
+    {% block announcements %}
+        <div class="container">
+            <div class="row">
+                <div class="col col-sm-12">
+
+                    <div class="panel">
+                        <div class="panel-body">
+                            This space will be used for announcements. If there aren't any, this div will not be rendered.  <span class="glyphicon glyphicon-heart-empty"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
+
 {% block content %}
-    <div id="carousel-featured-articles" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#carousel-featured-articles" data-slide-to="0" class="active"></li>
-		    	<li data-target="#carousel-featured-articles" data-slide-to="1"></li>
-		    	<li data-target="#carousel-featured-articles" data-slide-to="2"></li>
-		</ol>
+        {% block featuredContent %}
+<div class="row">
+    <div class="col-sm-4"">
+        <div class="page-header slim">
+            <h3 class="slim">Featured Project</h3>
+        </div>
+        <div id="featured_project" class="featured" >
+            <div class="description">
+                <label><a href="" class="text"; >How to install and setup FOSUserBundle in Symfony 2.4</a></label>
+                <br>
+                <small> <a href="" class="author">Paulo Amaral</a></small>
 
-	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner">
-	    <div class="item active">
-	      <img src="{{ asset('/css/images/slider01.gif') }}" alt="item1 image">
-	      <div class="carousel-caption feat-article">
-		<h1>Featured Article</h1>
-		<h2>Django with Python</h2>
-		<h3>Using Django with Python to develop neat websites</h3>
-	      </div>
-	    </div>
-            <div class="item">
-	      <img src="{{ asset('css/images/slider01.gif') }}" alt="item2 image">
-	      <div class="carousel-caption">
-		<h1>Featured Project</h1>
-		<h2>Online Europass</h2>
-		<h3>PHP project to put your europass CV online instantly!</h3>
-	      </div>
-	    </div>
-	    <div class="item">
-	      <img src="{{ asset('css/images/slider01.gif') }}" alt="item2 image">
-	      <div class="carousel-caption feat-story">
-		<h1>Featured Story</h1>
-		<h2>A great title!</h2>
-		<h4><em>"The rivers of blogland were far more atrocious to him than he could believe..."</em></h4>
-	      </div>
-	    </div>			
-	  </div>
+            </div>	
+        </div>
+    </div>
+    <div class="col-sm-4"">
+        <div class="page-header slim">
+            <h3 class="slim">Featured Article</h3>
+        </div>
+        <div id="featured_article" class="featured">
+            <div class="description">
+                <label><a href="{{ path('programming_moris_article_show', {'slug': featured_content['article'].slug}) }}" class="text" >{{ featured_content['article'].name }}</a></label>
+                <br>
+                <small> <a href="" class="author">{{ featured_content['article'].author.name}}</a></small>
 
-	  <!-- Controls -->
-	  <a class="left carousel-control" href="#carousel-featured-articles" data-slide="prev">
-	    <span class="glyphicon glyphicon-chevron-left"></span>
-	  </a>
-	  <a class="right carousel-control" href="#carousel-featured-articles" data-slide="next">
-	    <span class="glyphicon glyphicon-chevron-right"></span>
-	  </a>
-	</div>
+            </div>	
+        </div>
+    </div>
+    <div class="col-sm-4"">
+        <div class="page-header slim">
+            <h3 class="slim">Featured Photo Album</h3>
+        </div>
+        <div id="featured_album" class="featured" >
+            <div class="description">
+                <label><a href="" class="text"; >How to install and setup FOSUserBundle in Symfony 2.4</a></label>
+                <br>
+                <small> <a href="" class="author">Paulo Amaral</a></small>
 
-	<div class="row">
+            </div>	
+        </div>
+    </div>		
+</div>
 
-		<div class="col-md-12">
-			<div class="page-header slim">
-		    		<h3 class="slim">About</h3>
-			</div>
-			<div class="col-md-12">
-				<p>Programming <a data-toggle="tooltip" data-placement="top" title="" id="moris-tooltip" data-original-title="From the Tetum: Life"">Moris</a> is a website about programming and about all the other stuff I find interesting about life. It's fundamentally my personal website, my little corner on the web where I can write about the things that I care, and where I can display some of my personal projects. Feel free to dive in, and don't forget to give me some suggestions!(Here link to contacts page or something like it) </p>
-			</div>
-		</div>
-	</div>
-	<div class="row">
+        {% endblock %}
 
-		<div class="col-md-12">
-			<div class="page-header slim">
-		    		<h3 class="slim">Latest Articles</h3>
-			</div>
-			<div class="media">
-		  		<a class="pull-left" href="#">
-		    			<img class="media-object" src="{{ asset('css/images/ad01.gif') }}" alt="image for this article">
-		  		</a>
-		  		<div class="media-body">
-		    			<h4 class="media-heading">Article about stuff</h4>
-		    			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is</p>	
-  				</div>
-			</div>
-			<div class="media">
-		  		<a class="pull-left" href="#">
-		    			<img class="media-object" src="{{ asset('css/images/ad02.gif') }}" alt="image for this article">
-		  		</a>
-		  		<div class="media-body">
-		    			<h4 class="media-heading">Article about more stuff</h4>
-		    			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is</p>	
-  				</div>
-			</div>
-		</div>
-	</div>
+        {% block latestArticles %}
+            <div class="page-header slim">
+                <h3 class="slim">Latest articles</h3>
+            </div>
+            {% for article in latest_articles %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="media">
+                            <a class="pull-left col-md-2" href="#">
+                                <img src="{{ asset(article.descriptionImage) }}" alt="image for {{article.name}}" class="media-object img-responsive pull-right article-image small">
+                            </a>
+                            <div class="media-body">
+                                                <h3 class="media-heading"><a href="{{ path('programming_moris_article_show', {'slug': article.slug}) }}" class="article-title">{{article.name}}</a></h3>
+                                                <h4><a href="" class="author-label"><span class="label label-default">{{article.author.name}}</span></a></h4>
+                                                <h4><small style="font-family:courier,'new courier';" class="text-muted">{{article.createdAt|date("Y/m/d")}}
+                                                        {{article.renderTags(path('programming_moris_article_list_by_tag',{'tag': 'a'}))| raw }}
+                                                        •
+                                                        <a href="{{ path('programming_moris_article_show', {'slug': article.slug}) }}" class="text-muted">Read More</a></small></h4>
+                                                {{article.description}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+            <h4 class="more-articles"><a href="#"><i class="glyphicon glyphicon-chevron-down"></i> More articles</a></h4>    
+        {% endblock %}
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript">
-	$('#moris-tooltip').tooltip();
-    </script>
+<script type="text/javascript">
+    var featured_article_image_css = 'url({{ featured_content['article'].descriptionImage }})';
+    //$('#featured_article').css('background',featured_article_css);
+    $('#featured_article').css('background-image',featured_article_image_css);
+    $('#featured_article').css('background-repeat','no-repeat');
+    $('#featured_article').css('background-position','center center');
+</script>
 {% endblock %}
